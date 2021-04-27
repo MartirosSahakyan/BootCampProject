@@ -1,6 +1,6 @@
 ## About 
 
-This is my **first** :joy:   
+This is my *first* :joy:   
 project in GitHub
 ---
 ### Structure
