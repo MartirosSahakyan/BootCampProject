@@ -1,0 +1,10 @@
+h1{
+    color: darkgreen;
+}
+header{
+    background-color: lightblue;
+    margin: 0;
+    padding: 10px;
+    height: 100px;
+    width: 100%;
+}
