@@ -7,7 +7,7 @@ function primeNumber(number) {
     }
     return "YES";
   }
-  // console.log(primeNumber(401));
+  console.log(primeNumber(401));
   
   //10. Given a number n ( n >= 0 ) . Print n Fibonacci number. (Fibonacci th series: 0, 1, 1, 2, 3, 5, 8 ..., ak = ak-1 + ak-2)
   function sumFibonacciNumbers(number) {
@@ -23,7 +23,7 @@ function primeNumber(number) {
     }
     return fibArr;
   }
-  // console.log(sumFibonacciNumbers(5));
+  console.log(sumFibonacciNumbers(5));
   
   //11 Insert a number. Calculate product and sum of the digits of the number. If product is divisible by the sum, print the quotient, otherwise print the remainder.
   function divideSumProduct(number) {
@@ -43,5 +43,5 @@ function primeNumber(number) {
         ? `Quotient is ${product / sum}`
         : `Remainder is ${product % sum}`);
   }
-  // console.log(divideSumProduct(0));
+  console.log(divideSumProduct(0));
   

@@ -3,7 +3,7 @@ function evenOddNumber(num) {
   let result = num % 2 ? "odd" : "even";
   return result;
 }
-// console.log(evenOddNumber(15));
+console.log(evenOddNumber(15));
 
 // 2.Given two variables, which are the angles of a triangle. Find the third angle of the triangle. (Sum of the angles of a triangle equals 180 degrees).
 function triangleAnglesFinder(firstAngle, secondAngle) {
@@ -14,7 +14,7 @@ function triangleAnglesFinder(firstAngle, secondAngle) {
     return "insert only numbers";
   }
 }
-// console.log(triangleAnglesFinder('20',60));
+console.log(triangleAnglesFinder('20',60));
 
 //3.Given a positive integer. Bring the last digit of the number to the beginning. Print the new number. If the last digit of the inserted number is 0, number remains the same.
 function lastDigitReverser(num) {
@@ -28,7 +28,7 @@ function lastDigitReverser(num) {
     return num;
   }
 }
-// console.log(lastDigitReverser(1002));
+console.log(lastDigitReverser(1002));
 
 //4.Check if a number is a multiple of 3, 5 or 7 and output the appropriate message.
 function multiplyDetector(num) {
@@ -52,15 +52,15 @@ function multiplyDetector(num) {
   }
   return message;
 }
-// console.log(multiplyDetector(420));
+console.log(multiplyDetector(420));
 
 //5. Given three numbers. Sort them by the ascending order.
 function sortNumbers(num1, num2, num3) {
   let arr = [num1, num2, num3];
   return arr.sort((a, b) => a - b).join(",");
 }
-// console.log(sortNumbers(45, 26, 78));
-// console.log(sortNumbers(-23, 0, -456));
+console.log(sortNumbers(45, 26, 78));
+console.log(sortNumbers(-23, 0, -456));
 
 //6.Find the sign of product of three numbers without multiplication operator. Display the specified sign.
 function productSign(num1, num2, num3) {
@@ -80,14 +80,14 @@ function productSign(num1, num2, num3) {
     return "unsigned";
   }
 }
-// console.log(productSign(4,19,-2));
+console.log(productSign(4,19,-2));
 
 //7.Insert a digit and a number. Check whether the digits contains in the number or not.
 function numberContainDigit(digit, number) {
   let result = number.toString().includes(digit) ? "YES" : "NO";
   return result;
 }
-// console.log(numberContainDigit(5, 2147));
+console.log(numberContainDigit(5, 2147));
 
 //8.Enter a number. Reverse its first and last digits. Print the new number.
 function firstLastDigitsReverser(num) {
@@ -101,7 +101,7 @@ function firstLastDigitsReverser(num) {
       : +(lastDigit + numToString.slice(1, length - 1) + firstDigit);
   return result;
 }
-// console.log(firstLastDigitsReverser(2));
+console.log(firstLastDigitsReverser(2));
 
 
 
