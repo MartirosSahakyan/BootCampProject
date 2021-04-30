@@ -8,7 +8,7 @@ function completeSentence(sentence, array) {
   }
   return sentenceToArray.join(" ");
 }
-console.log(completeSentence("May the _ _ _ _", ['Force', 'be', 'with', 'you']));
+// console.log(completeSentence("May the _ _ _ _", ['Force', 'be', 'with', 'you']));
 
 //13. Given mixed array of numbers, strings, booleans, nulls and undefined. Filter array and get all the numbers
 // in a separate array. Arrange them such as from the beginning are the odds and from the ending the evens.
@@ -24,7 +24,7 @@ function filterArrayAndSort(array) {
   }
   return result;
 }
-console.log(filterArrayAndSort([8, 0, 1, "hey", 12, 5 , true, "2", null, NaN, 7, 3]));
+// console.log(filterArrayAndSort([8, 0, 1, "hey", 12, 5 , true, "2", null, NaN, 7, 3]));
 
 //14 Given an array of strings and numbers. Print the number of integers and the number of strings in the array
 function stringNumberCounter(array) {
@@ -39,7 +39,7 @@ function stringNumberCounter(array) {
   }
   return `Numbers: ${countNum}, Strings:${countStr}`;
 }
-console.log(stringNumberCounter([1, "10", "hi", 2, 3]));
+// console.log(stringNumberCounter([1, "10", "hi", 2, 3]));
 
 //15 Given an array of strings. Find the strings with maximum and minimum lengths in array. Print the sum of
 // their lengths.
@@ -50,7 +50,7 @@ function sumMaxMinLengthStrings(array) {
   }
   return Math.min(...lengthsArr) + Math.max(...lengthsArr);
 }
-console.log(sumMaxMinLengthStrings(["anymore", "raven", "me", "communicate"]));
+// console.log(sumMaxMinLengthStrings(["anymore", "raven", "me", "communicate"]));
 
 //16 Given an array of numbers and a number. Find the index of a first element which is equal to that number.
 // If there is not such a number, that find the index of the first element which is the closest to it.
@@ -67,7 +67,7 @@ function findIndexOfNum(array, num) {
   let minRange = Math.min(...rangeArr);
   return rangeArr.indexOf(minRange);
 }
-  console.log(findIndexOfNum([5, 46, 17, -2, 89, 0, 26], 36));
+  // console.log(findIndexOfNum([5, 46, 17, -2, 89, 0, 26], 36));
 
 // 17. Given a sentence as a string. Split it according to space and comma and create an array consisting of the
 // words of the array. The last word should not contain the last . or!
@@ -75,7 +75,22 @@ function findIndexOfNum(array, num) {
 function sentenceSplit(sentence) {
   return sentence.slice(0, sentence.length - 1).split(",");
 }
-console.log(sentenceSplit("May the Force be with you."));
+// console.log(sentenceSplit("May the Force be with you."));
+
+// 18.
+function createArrayWithUndefined(array) {
+  let newArray = []
+  for (let i = 0; i < array.length; i++) {
+    newArray[array[i]] = array[i]
+  }
+  for (let i = 0; i < newArray.length; i++) {
+    if(typeof newArray[i] === 'undefined'){
+      newArray[i] = undefined
+    }
+  }
+  return newArray
+}
+// console.log(createArrayWithUndefined([4,3,0,9]));
 
 //19. Given an array consisting from the arrays of numbers (like a two-dimensional array). Find sum of each row and print them as an array.
 function sumMatrixRow(array) {
@@ -90,11 +105,12 @@ function sumMatrixRow(array) {
   return result;
 }
 
-console.log(
-  sumMatrixRow([
-    [3, 4, 5],
-    [1, 0, 0],
-    [4, 5, 4],
-    [8, 8, -1],
-  ])
-);
+// console.log(
+//   sumMatrixRow([
+//     [3, 4, 5],
+//     [1, 0, 0],
+//     [4, 5, 4],
+//     [8, 8, -1],
+//   ])
+// );
+
