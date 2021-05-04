@@ -30,7 +30,7 @@ function calculateArrayItems(array = [], operator = "") {
 // console.log(calculateArrayItems([1, 2, 3, 4], "+"));
 
 // 3
-let validatePhoneNumber = function (input = "") {
+const validatePhoneNumber = function (input = "") {
   let number = input
     .split("")
     .filter((el) => el.trim())
@@ -51,7 +51,7 @@ let validatePhoneNumber = function (input = "") {
 // console.log(validatePhoneNumber("339 5656888"));
 
 // 4
-let findAnagrams = (str = "", array = []) => {
+const findAnagrams = (str = "", array = []) => {
   let result = [];
   array.forEach((el) => {
     if (str.split("").sort().join("") === el.split("").sort().join("")) {
@@ -82,4 +82,22 @@ function sumNumsInString(str = "") {
 }
 // console.log(sumNumsInString("FwrtY12KHL-12"));
 
-// 6
+// 7
+function moveFirst3Chars(str) {
+    let lastDigits = str.length % 3
+    let len = str.length
+    let temp = 0
+    let result = "";
+    for (let i = 0; i < parseInt(len / 3); i++) {
+        let group = str.substr(temp, 3);
+        let reverse = group[1] + group[2] + group[0];
+        result += reverse;
+        group = "";
+        reverse = "";
+        temp += 3 
+    }
+    return result + str.slice(len-lastDigits, len)
+}
+console.log(moveFirst3Chars('aweyoolp'));
+
+ 
