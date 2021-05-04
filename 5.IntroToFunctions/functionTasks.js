@@ -1,5 +1,5 @@
 // 1
-function separateOddEven(nums) {
+function separateOddEven(nums = []) {
   let oddNums = [];
   let evenNums = [];
   nums.forEach((element) => {
@@ -14,7 +14,7 @@ function separateOddEven(nums) {
 // console.log(separateOddEven([45, 12, 3, 6, 17, 0]));
 
 // 2
-function calculateArrayItems(array, operator) {
+function calculateArrayItems(array = [], operator = "") {
   let res;
   if (operator === "+") {
     res = array.reduce((acc, el) => acc + el);
@@ -50,4 +50,36 @@ let validatePhoneNumber = function (input = "") {
 };
 // console.log(validatePhoneNumber("339 5656888"));
 
+// 4
+let findAnagrams = (str = "", array = []) => {
+  let result = [];
+  array.forEach((el) => {
+    if (str.split("").sort().join("") === el.split("").sort().join("")) {
+      result.push(el);
+    }
+  });
+  return result;
+};
+// console.log(findAnagrams('pencil', ['licnep', 'circular', 'pupil', 'nilcpe', 'leppnec']));
 
+// 5
+function sumNumsInString(str = "") {
+  let strToArr = str.split("");
+  let temp = "";
+  let sum = 0;
+  for (let i = 0; i < strToArr.length; i++) {
+    if (strToArr[i] === "-" || !isNaN(Number(strToArr[i]))) {
+      temp += strToArr[i];
+    } else {
+      sum += Number(temp);
+      temp = "";
+    }
+  }
+  if (Number(temp)) {
+    sum += Number(temp);
+  }
+  return sum;
+}
+// console.log(sumNumsInString("FwrtY12KHL-12"));
+
+// 6
