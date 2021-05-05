@@ -126,9 +126,37 @@ function findLargerNums(numbers, num) {
       largerNums.push(number);
     }
   }
-  return largerNums.length ? largerNums : 'Such values do not exist.'
+  return largerNums.length ? largerNums : "Such values do not exist.";
 }
 
 // console.log(findLargerNums([10,-5, 15], 16));
 
 // 11
+function findEvenDigitsNums(num1, num2) {
+  const range = [];
+  const res = [];
+  for (let i = num1; i <= num2; i++) {
+    range.push(String(i));
+  }
+  let isEven = false;
+  for (let i = 0; i < range.length; i++) {
+    for (let j = 0; j < range[i].length; j++) {
+      if (range[i][j] % 2 === 0) {
+        isEven = true;
+      } else {
+        isEven = false;
+        break;
+      }
+    }
+    if (isEven) {
+      res.push(range[i]);
+    }
+    if (!res.length) {
+      return "Such numbers does not exist.";
+    }
+  }
+  return res;
+}
+// console.log(findEvenDigitsNums(19, 42));
+
+// 12
