@@ -84,20 +84,51 @@ function sumNumsInString(str = "") {
 
 // 7
 function moveFirst3Chars(str) {
-    let lastDigits = str.length % 3
-    let len = str.length
-    let temp = 0
-    let result = "";
-    for (let i = 0; i < parseInt(len / 3); i++) {
-        let group = str.substr(temp, 3);
-        let reverse = group[1] + group[2] + group[0];
-        result += reverse;
-        group = "";
-        reverse = "";
-        temp += 3 
-    }
-    return result + str.slice(len-lastDigits, len)
+  let lastDigits = str.length % 3;
+  let len = str.length;
+  let temp = 0;
+  let result = "";
+  for (let i = 0; i < parseInt(len / 3); i++) {
+    let group = str.substr(temp, 3);
+    let reverse = group[1] + group[2] + group[0];
+    result += reverse;
+    group = "";
+    reverse = "";
+    temp += 3;
+  }
+  return result + str.slice(len - lastDigits, len);
 }
-console.log(moveFirst3Chars('aweyoolp'));
+// console.log(moveFirst3Chars("aweyoolp"));
 
- 
+// 8
+function findLongestWord(str) {
+  let words = str.split(" ");
+  let res = "";
+  for (let i = 1; i < words.length; i++) {
+    if (words[i].length < words[i - 1].length) {
+      res = words[i - 1];
+    }
+  }
+  return res;
+}
+
+// console.log(
+//   findLongestWord(
+//     "A revolution without dancing is a revolution not worth having."
+//   )
+// );
+
+// 9
+function findLargerNums(numbers, num) {
+  let largerNums = [];
+  for (const number of numbers) {
+    if (number > num) {
+      largerNums.push(number);
+    }
+  }
+  return largerNums.length ? largerNums : 'Such values do not exist.'
+}
+
+// console.log(findLargerNums([10,-5, 15], 16));
+
+// 11
