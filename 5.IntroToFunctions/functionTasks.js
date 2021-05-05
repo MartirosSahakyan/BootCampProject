@@ -62,6 +62,7 @@ const findAnagrams = (str = "", array = []) => {
 };
 // console.log(findAnagrams('pencil', ['licnep', 'circular', 'pupil', 'nilcpe', 'leppnec']));
 
+
 // 5
 function sumNumsInString(str = "") {
   let strToArr = str.split("");
@@ -81,6 +82,10 @@ function sumNumsInString(str = "") {
   return sum;
 }
 // console.log(sumNumsInString("FwrtY12KHL-12"));
+
+// 6
+const clearStringFromSentence = (sentence, str) => sentence.split(str).join('')
+// console.log(clearStringFromSentence("This is some text.", 'is'));
 
 // 7
 function moveFirst3Chars(str) {
