@@ -62,7 +62,6 @@ const findAnagrams = (str = "", array = []) => {
 };
 // console.log(findAnagrams('pencil', ['licnep', 'circular', 'pupil', 'nilcpe', 'leppnec']));
 
-
 // 5
 function sumNumsInString(str = "") {
   let strToArr = str.split("");
@@ -84,7 +83,7 @@ function sumNumsInString(str = "") {
 // console.log(sumNumsInString("FwrtY12KHL-12"));
 
 // 6
-const clearStringFromSentence = (sentence, str) => sentence.split(str).join('')
+const clearStringFromSentence = (sentence, str) => sentence.split(str).join("");
 // console.log(clearStringFromSentence("This is some text.", 'is'));
 
 // 7
@@ -135,6 +134,47 @@ function findLargerNums(numbers, num) {
 }
 
 // console.log(findLargerNums([10,-5, 15], 16));
+// 13
+function longestSubstring(str) {
+  let seenChar = {};
+
+  // tracking current substring indexes
+  let startIndex = 0;
+  let endIndex = 0;
+
+  // keeping largest range
+  let max = [startIndex, endIndex];
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    // if char is space passing it
+    if (char === " ") {
+      endIndex++;
+      continue;
+    }
+
+    if (!(char in seenChar)) {
+      endIndex++;
+      seenChar[char] = i;
+      continue;
+    }
+
+    // if we find larger range update max
+    if (endIndex - startIndex > max[1] - max[0]) {
+      max[0] = startIndex;
+      max[1] = endIndex;
+    }
+    // set the loop to continue from seenChar[char] + 1
+    startIndex = seenChar[char] + 1;
+    endIndex = i = startIndex;
+    seenChar = {};
+  }
+  // cutting from start index to end index
+  return str.substring(max[0], max[1]);
+}
+
+let string = "ABDEFGABEF";
+
+// console.log(longestSubstring(string));
 
 // 11
 function findEvenDigitsNums(num1, num2) {
@@ -164,4 +204,26 @@ function findEvenDigitsNums(num1, num2) {
 }
 // console.log(findEvenDigitsNums(19, 42));
 
-// 12
+// 13
+function subset(array, arraySize) {
+  let resultSet = [];
+
+  for (let x = 0; x < Math.pow(2, array.length); x++) {
+    let result = [];
+    let i = array.length - 1;
+    while (i--) {
+      if ((x & (1 << i)) !== 0) {
+        result.push(array[i]);
+      }
+    }
+    if (result.length === arraySize) {
+      resultSet.push(result);
+    }
+  }
+
+  return resultSet;
+}
+
+let arr = [5, 9, 23, 0, -2, -1];
+const res = subset(arr, 3);
+// console.log(res.length, res);
