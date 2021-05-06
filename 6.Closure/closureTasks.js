@@ -102,4 +102,26 @@ function isIsogram(word = '') {
 }
 // console.log(isIsogram('hello world'));
 
+// 8) Given an array of numbers. Find the sum of numbers quadratic which are even.
 
+function sumQuadratikNums(array) {
+ const res = array.reduce((acc, curr)=>{
+    if (!(Math.sqrt(curr) % 2)) {
+      acc += curr
+    }
+    return acc
+  })
+  return res
+}
+// console.log(sumQuadratikNums([1,2,4,3]));
+
+// 9) Check whether string is palindrome, or not.
+function isPalindrom(str) {
+  return (() => {
+    if (str.split('').reverse().join('') === str) {
+      return true
+    }
+    return false
+  })()
+}
+// console.log(isPalindrom('alla'));
