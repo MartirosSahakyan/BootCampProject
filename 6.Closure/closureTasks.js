@@ -55,12 +55,12 @@ function filterFalsyValues(array) {
   const res = [];
   return (() => {
     for (const item of array) {
-          if (item) {
-            res.push(item);
-          }
-        }
-        return res
-  })()
+      if (item) {
+        res.push(item);
+      }
+    }
+    return res;
+  })();
 }
 // console.log(filterFalsyValues(values));
 // console.log(filterFalsyValues(["hello", 1233, []]));
@@ -70,12 +70,12 @@ function filterByLength(array) {
   const res = [];
   return (() => {
     for (const item of array) {
-          if (item.length > 3) {
-            res.push(item);
-          }
-        }
-        return res
-  })()
+      if (item.length > 3) {
+        res.push(item);
+      }
+    }
+    return res;
+  })();
 }
 // console.log(filterByLength(["kia", "tesla", "bmw", "mercedes"]));
 
@@ -91,37 +91,49 @@ function isUniq(input) {
   return true;
 }
 function isOnlyUniqItems(array) {
-  return isUniq(array)
+  return isUniq(array);
 }
 // console.log(isOnlyUniqItems([10,5, 20, 50]));
 
 // 7) Determine if a word or phrase is an isogram.
 
-function isIsogram(word = '') {
-  return isUniq(word)
+function isIsogram(word = "") {
+  return isUniq(word);
 }
 // console.log(isIsogram('hello world'));
 
 // 8) Given an array of numbers. Find the sum of numbers quadratic which are even.
 
 function sumQuadratikNums(array) {
- const res = array.reduce((acc, curr)=>{
+  const res = array.reduce((acc, curr) => {
     if (!(Math.sqrt(curr) % 2)) {
-      acc += curr
+      acc += curr;
     }
-    return acc
-  })
-  return res
+    return acc;
+  });
+  return res;
 }
 // console.log(sumQuadratikNums([1,2,4,3]));
 
 // 9) Check whether string is palindrome, or not.
 function isPalindrom(str) {
   return (() => {
-    if (str.split('').reverse().join('') === str) {
-      return true
+    if (str.split("").reverse().join("") === str) {
+      return true;
     }
-    return false
-  })()
+    return false;
+  })();
 }
 // console.log(isPalindrom('alla'));
+
+// 10) Given an array of integers, find the pair of adjacent elements that has the largest product and return that product
+function largestAdjacentPairProduct(array) {
+  const products = [];
+  return (() => {
+    for (let i = 0; i < array.length - 1; i++) {
+      products.push(array[i] * array[i + 1]);
+    }
+    return Math.max(...products);
+  })();
+}
+// console.log(largestAdjacentPairProduct([1, 2, 3, 4, 2, 5]));
