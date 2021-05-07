@@ -1,9 +1,9 @@
 //12 Given a sentence with missing words and an array of words. Replace all ‘_ʼ in a sentence with the words from the array.
-function completeSentence(sentence, array) {
+function completeSentence(sentence, arrayForReplace) {
   let sentenceToArray = sentence.split(" ");
   for (let i = 0; i < sentenceToArray.length; i++) {
     if (sentenceToArray[i] === "_") {
-      sentenceToArray[i] = array.shift();
+      sentenceToArray[i] = arrayForReplace.shift();
     }
   }
   return sentenceToArray.join(" ");
@@ -67,7 +67,7 @@ function findIndexOfNum(array, num) {
   let minRange = Math.min(...rangeArr);
   return rangeArr.indexOf(minRange);
 }
-  // console.log(findIndexOfNum([5, 46, 17, -2, 89, 0, 26], 36));
+// console.log(findIndexOfNum([5, 46, 17, -2, 89, 0, 26], 36));
 
 // 17. Given a sentence as a string. Split it according to space and comma and create an array consisting of the
 // words of the array. The last word should not contain the last . or!
@@ -79,18 +79,13 @@ function sentenceSplit(sentence) {
 
 // 18.
 function createArrayWithUndefined(array) {
-  let newArray = []
-  for (let i = 0; i < array.length; i++) {
-    newArray[array[i]] = array[i]
+  let newArray = [];
+  for (let i = Math.min(...array); i < Math.max(...array); i++) {
+    newArray[array[i]] = array[i];
   }
-  for (let i = 0; i < newArray.length; i++) {
-    if(typeof newArray[i] === 'undefined'){
-      newArray[i] = undefined
-    }
-  }
-  return newArray
+  return newArray;
 }
-// console.log(createArrayWithUndefined([4,3,0,9]));
+console.log(createArrayWithUndefined([4, 3, 9]));
 
 //19. Given an array consisting from the arrays of numbers (like a two-dimensional array). Find sum of each row and print them as an array.
 function sumMatrixRow(array) {
@@ -114,3 +109,18 @@ function sumMatrixRow(array) {
 //   ])
 // );
 
+// console.log('A'<'Z');
+
+// 20.
+function makePrizma(size) {
+  let result = "";
+  for (let i = 1; i <= size; i++) {
+    for (let j = 1, m = i; j <= i; j++) {
+      result += ` ${m}`;
+      m += size - j;
+    }
+    result += "\n";
+  }
+  return result;
+}
+// console.log(makePrizma(5));
