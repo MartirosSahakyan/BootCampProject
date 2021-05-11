@@ -1,96 +1,99 @@
 let size = 3;
-function createTable(size) {
-  let table = [];
+function generateBoard() {
+  const board = [];
   for (let i = 0; i < size; i++) {
-    table[i] = [];
-  }
-  for (let i = 0; i < table.length; i++) {
+    board.push([]);
     for (let j = 0; j < size; j++) {
-      table[i][j] = "-";
+      board[i][j] = "";
     }
   }
-  return table;
+  return board;
 }
 
-const gameTable = createTable(size);
-// console.log(gameTable);
-function player0(dask) {
-  let x = Math.floor(Math.random() * (size - 1 - 0 + 1)) + 0;
-  let y = Math.floor(Math.random() * (size - 1 - 0 + 1)) + 0;
-  if (dask[x][y] === "-") {
-    dask[x][y] = 0;
+function makeMove(s) {
+  let i = Math.floor(Math.random() * s);
+  let j = Math.floor(Math.random() * s);
+  return { i, j };
+}
+
+let Board = generateBoard();
+let players = {
+  x: 1,
+  o: 0,
+};
+let currentUser = players.x;
+
+function updateBoard(board) {
+  const move = makeMove(size);
+  if (board[move.i][move.j] !== "") {
+    updateBoard(board);
   } else {
-    // console.log('field is checked');
-    player0(dask);
-  }
-  console.log(check(dask));
-}
-function player1(dask) {
-  let x = Math.floor(Math.random() * (size - 1 - 0 + 1)) + 0;
-  let y = Math.floor(Math.random() * (size - 1 - 0 + 1)) + 0;
-  if (dask[x][y] === "-") {
-    dask[x][y] = 1;
-  } else {
-    // console.log('field is checked');
-    player1(dask);
-  }
-  console.log(check(dask));
-}
-
-function check(table) {
-  // check row
-  let sumRow = 0;
-  for (let i = 0; i < size; i++) {
-    for (let j = 0; j < size; j++) {
-      sumRow += table[i][j];
-    }
-    if (sumRow === size || sumRow === 0) {
-      return `Player${sumRow / size} win by row`;
-    }
-    sumRow = 0;
-  }
-  // check column
-  let sumColumn = 0;
-  for (let k = 0; k < size; k++) {
-    for (let l = 0; l < size; l++) {
-      sumColumn += table[l][k];
-    }
-    if (sumColumn === size || sumColumn === 0) {
-      return `Player${sumColumn / size} win by column`;
-    }
-    sumColumn = 0;
-  }
-  // check diagonal 1
-  let sumDiagonal1 = 0;
-  for (let a = 0; a < size; a++) {
-    for (let b = 0; b < size; b++) {
-      if (a === b) {
-        sumDiagonal1 += table[a][b];
-      }
-    }
-  }
-  if (sumDiagonal1 === size || sumDiagonal1 === 0) {
-    return `Player${sumDiagonal1} win by diagonal`;
-  }
-  // check diagonal 2
-  let sumDiagonal2 = 0;
-  for (let c = 0; c < size; c++) {
-    for (let d = 0; d < size; d++) {
-      if (d === size - c - 1) {
-        sumDiagonal2 += table[c][d];
-      }
-    }
-  }
-  if (sumDiagonal2 === size || sumDiagonal2 === 0) {
-    return `Player${sumDiagonal2} win by diagonal`;
+    board[move.i][move.j] = currentUser;
   }
 }
 
-player0(gameTable);
-player0(gameTable);
-player0(gameTable);
+function sumOfArray(arr) {
+  let sum = 0;
+  for (let el in arr) {
+    sum += el;
+  }
+  return sum;
+}
 
+function checkBoard(board) {
+  let dioganalSum = 0;
+  let reverceDioganalSum = 0;
+  for (let i = 0; i < board.length; i++) {
+    dioganalSum += board[i][i];
+    reverceDioganalSum += board[i][board.length - 1 - i];
 
-// console.log(gameTable);
+    if (size * currentUser === sumOfArray(board[i])) {
+      return true;
+    }
+    let sum = 0;
+    for (let j = 0; j < board.length; j++) {
+      sum += board[j][i];
+    }
+    if (size * currentUser === sum) {
+      return true;
+    }
+  }
+  if (
+    size * currentUser === dioganalSum ||
+    size * currentUser === reverceDioganalSum
+  ) {
+    return true;
+  }
+  return false;
+}
 
+function isDraw(board) {
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board.length; j++) {
+      if (board[i][j] === "") return false;
+    }
+  }
+  return true;
+}
 
+function runTicTacToe() {
+  let finished = false;
+  let winner = null;
+  while (!finished) {
+    updateBoard(Board);
+    let isWinner = checkBoard(Board);
+    if (isWinner) {
+      winner = currentUser;
+      finished = true;
+    } else if (isDraw(Board)) {
+      return { Board, winner: "Draw" };
+    } else {
+      currentUser = currentUser === players.x ? players.o : players.x;
+    }
+  }
+  return { Board, winner };
+}
+
+const state = runTicTacToe();
+console.log(state.Board);
+console.log(state.winner);
