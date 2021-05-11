@@ -56,3 +56,25 @@ function mySome(array, callback) {
   }
   return false;
 }
+
+function mySlice(array, start = 0, end=array.length) {
+  const newArray = []
+  if (start < 0) {
+    for (let i = array.length+start; i < array.length; i++) {
+      newArray.push(array[i])
+    }
+    return newArray
+  }
+  for (let i = start; i < end; i++) {
+    newArray.push(array[i])
+  }  
+  return newArray
+}
+
+// let arr = [1,2,3,4]
+// let res = arr.slice(-3)
+// console.log(res);
+
+let arr = [1,2,3,4]
+let res = mySlice(arr, -3)
+console.log(res);
