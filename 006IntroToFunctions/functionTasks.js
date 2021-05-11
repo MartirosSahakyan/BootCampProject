@@ -132,9 +132,9 @@ function findLargerNums(numbers, num) {
   }
   return largerNums.length ? largerNums : "Such values do not exist.";
 }
-
 // console.log(findLargerNums([10,-5, 15], 16));
-// 13
+
+// 10
 function longestSubstring(str) {
   let seenChar = {};
 
