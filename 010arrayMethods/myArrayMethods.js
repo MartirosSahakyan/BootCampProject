@@ -57,24 +57,26 @@ function mySome(array, callback) {
   return false;
 }
 
-function mySlice(array, start = 0, end=array.length) {
-  const newArray = []
+function mySlice(array, start = 0, end = array.length) {
+  const newArray = [];
   if (start < 0) {
-    for (let i = array.length+start; i < array.length; i++) {
-      newArray.push(array[i])
+    for (let i = array.length + start; i < array.length; i++) {
+      newArray.push(array[i]);
     }
-    return newArray
+    return newArray;
   }
   for (let i = start; i < end; i++) {
-    newArray.push(array[i])
-  }  
-  return newArray
+    newArray.push(array[i]);
+  }
+  return newArray;
 }
 
-// let arr = [1,2,3,4]
-// let res = arr.slice(-3)
-// console.log(res);
+function myReduce(array, callback, initialValue) {
+  let acc = initialValue === undefined ? array[0] : initialValue;
+  const startIndex = initialValue === undefined ? 1 : 0;
+  for (let index = startIndex; index < array.length; index++) {
+    acc = callback(acc, array[index], index, array);
+  }
+  return acc;
+}
 
-let arr = [1,2,3,4]
-let res = mySlice(arr, -3)
-console.log(res);
