@@ -6,10 +6,5 @@
 
 const input = " 4983";
 const myRegExp = /^\d{4}$|^\d{6}$/;
+
 console.log(myRegExp.test(input));
-
-// Find all texts between tags
-
-const REGEXP = /(<[^>]+>)/g;
-let str = '<> <a href="/"> <input type="radio" checked> <b>';
-console.log(str.match(REGEXP));
