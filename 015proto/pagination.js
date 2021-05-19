@@ -4,9 +4,9 @@ let currentPage = 0;
 const Pagination = {
   init: (array, pageSize) => {
     let fakePages = [];
-    array.forEach((el, i) => {
+    for (let i = 0; i < array.length; i += pageSize) {
       fakePages[i] = array.slice(i, i + pageSize);
-    });
+    }
     pages = fakePages.filter((e) => e);
     return pages;
   },
@@ -32,7 +32,7 @@ const Pagination = {
   },
 };
 
-Pagination.init(alphabetArray, 2);
+Pagination.init(alphabetArray, 4);
 
 Pagination.getPageItems();
 Pagination.nextPage();
