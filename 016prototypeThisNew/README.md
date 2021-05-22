@@ -33,8 +33,13 @@
     4. Should cause the odometer to go up.
     5. Should cause the the tank to go down taking milesPerGallon into account.
     6. STRETCH: A car which runs out of fuel while driving can't drive any more distance:
-    7. The drive method should return a string "Iran out of fuel at x miles!" x being odometer.
- 
+    7. The drive method should return a string "Iran out of fuel at x miles!" x being odometer.  
+
+* **Baby Constructor**   
+    1. Write a Baby constructor subclassing Person.
+    2. Besides name and age, Baby takes a third argument to initialize favoriteToy.
+    3. Besides the methods on Person.prototype, babies have the ability to .play():
+    4. Should return a string "Playing with x", x being the favorite toy.
     
 ## Literature
 
