@@ -1,5 +1,6 @@
 # Prototype / This / New
 
+> There are implementetions of **new** operator and **apply,call,bind** methods
 ## Tasks Decription  
 
 * **Calculator Constructor**   
