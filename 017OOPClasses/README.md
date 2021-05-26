@@ -44,6 +44,24 @@
     - foodOnly:returns only the item names of type food from the menu.
     - IMPORTANT: Orders are fulfilled in a FIFO (first-in, first-out) order.
 
+ * **Shiritori**   
+   *This challenge is an English twist on the Japanese word game Shiritori. The basic premise is to follow two rules:*
+   - First character of next word must match last character of previous word.
+   - The word must not have already been said.
+
+   *Properties::*
+    - words: an array of words already said.
+    - game_over: a boolean that is true if the game is over.
+
+    *Methods::*
+    - play: a method that takes in a word as an argument and checks if it is valid (the word should follow rules #1 and #2 above).
+      - If it is valid, it adds the word to the words array, and returns the words array.
+      - If it is invalid (eitherrule is broken), itreturns "game over" and sets the game_over boolean to true.
+    - restart: a method that sets the words array to an empty one [] and sets the game_over boolean to
+    false. It should return "game restarted".
+
+  
+
     
 ## Literature
 
