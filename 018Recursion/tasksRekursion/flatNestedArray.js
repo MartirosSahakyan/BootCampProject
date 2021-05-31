@@ -1,22 +1,20 @@
 function flatNestedArray(arr) {
-  const flatedArray = [];
+  const flattedArray = [];
 
   function recursiveFoo(arr) {
     if (!Array.isArray(arr)) {
-      flatedArray.push(arr);
+      flattedArray.push(arr);
     } else {
-      for (let i = 0; i < arr.length; i++) {
-        recursiveFoo(arr[i]);
-      }
+      arr.forEach((item) => recursiveFoo(item));
     }
   }
 
   recursiveFoo(arr);
 
-  return flatedArray;
+  return flattedArray;
 }
 
-const array = [1, [3, 4, [1, 2]], 10];
-// const array = [14, [1, [[[3, []]], 1], 0]];
+// const array = [1, [3, 4, [1, 2]], 10];
+const array = [14, [1, [[[3, []]], 1], 0]];
 
 console.log(flatNestedArray(array));
