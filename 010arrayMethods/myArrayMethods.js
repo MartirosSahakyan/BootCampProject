@@ -1,3 +1,5 @@
+// @TODO: mySplice
+
 function myForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
     callback(array[index], index, array);
@@ -79,4 +81,3 @@ function myReduce(array, callback, initialValue) {
   }
   return acc;
 }
-
