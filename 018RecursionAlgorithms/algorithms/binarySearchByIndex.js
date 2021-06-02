@@ -1,4 +1,4 @@
-const arr = [1, 2, 3, 4, 5, 6];
+const numbers = [1, 2, 3, 4, 5, 6];
 
 function binarySearchIndexElem(arr, value) {
   const array = arr;
@@ -23,4 +23,4 @@ function binarySearchIndexElem(arr, value) {
   return binarySearch(arr, value);
 }
 
-console.log(binarySearchIndexElem([5, 6, 7, 8, 9, 10, 25], 5));
+console.log(binarySearchIndexElem(numbers, 5));
