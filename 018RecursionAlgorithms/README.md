@@ -23,7 +23,7 @@
 
 # Sorting Algorithms  
 
-  - [binary search]()
+  - [binary search](https://github.com/MartirosSahakyan/BootCampProject/blob/main/018RecursionAlgorithms/algorithms/binarySearchByIndex.js)
 
  ## Literature
 
