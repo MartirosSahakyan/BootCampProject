@@ -19,13 +19,14 @@
   const fib = (n) => (n <= 1 ? n : fib(n - 1) + fib(n - 2));
   ```
  
-> see more tasks [here](https://github.com/MartirosSahakyan/BootCampProject/tree/main/018Recursion/tasksRekursion)
+> see more tasks [here](https://github.com/MartirosSahakyan/BootCampProject/tree/main/018RecursionAlgorithms/tasksRekursion)
 
 # Sorting Algorithms  
 
   - [binary search](https://github.com/MartirosSahakyan/BootCampProject/blob/main/018RecursionAlgorithms/algorithms/binarySearchByIndex.js)  
   - [bubble sort](https://github.com/MartirosSahakyan/BootCampProject/blob/main/018RecursionAlgorithms/algorithms/bubbleSort.js)    
-  - [merge sort](https://github.com/MartirosSahakyan/BootCampProject/blob/main/018RecursionAlgorithms/algorithms/mergeSort.js)   
+  - [merge sort](https://github.com/MartirosSahakyan/BootCampProject/blob/main/018RecursionAlgorithms/algorithms/mergeSort.js)      
+  - [selection sort](https://github.com/MartirosSahakyan/BootCampProject/blob/main/018RecursionAlgorithms/algorithms/selectionSort.js)   
 
  ## Literature
 
