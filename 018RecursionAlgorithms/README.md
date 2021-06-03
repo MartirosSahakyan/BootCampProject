@@ -24,7 +24,8 @@
 # Sorting Algorithms  
 
   - [binary search](https://github.com/MartirosSahakyan/BootCampProject/blob/main/018RecursionAlgorithms/algorithms/binarySearchByIndex.js)  
-  - [bubble sort](https://github.com/MartirosSahakyan/BootCampProject/blob/main/018RecursionAlgorithms/algorithms/bubbleSort.js)
+  - [bubble sort](https://github.com/MartirosSahakyan/BootCampProject/blob/main/018RecursionAlgorithms/algorithms/bubbleSort.js)    
+  - [merge sort](https://github.com/MartirosSahakyan/BootCampProject/blob/main/018RecursionAlgorithms/algorithms/mergeSort.js)   
 
  ## Literature
 
