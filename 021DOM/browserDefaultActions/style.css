@@ -1,0 +1,28 @@
+a {
+  text-decoration: none;
+}
+.link-to {
+  font-size: large;
+  padding: 10px;
+}
+.link-to:hover {
+  background-color: lightgray;
+}
+.warning {
+  display: none;
+}
+.warning a {
+  border: 1px solid white;
+}
+.warning a {
+  cursor: pointer;
+  font-size: 15px;
+  margin-right: 10px;
+  padding: 5px 15px;
+}
+.warning a:nth-child(2) {
+  background-color: green;
+}
+.warning a:last-child {
+  background-color: red;
+}
