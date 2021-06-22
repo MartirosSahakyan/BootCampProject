@@ -29,6 +29,7 @@ timerStartInput.addEventListener("change", (evt) => {
 
 pauseBtn.addEventListener("click", () => {
   if (timer.isPaused) {
+    clearInterval(timer.id);
     timer.id = setInterval(startTimer, 1000);
     timer.isPaused = false;
     pauseBtn.textContent = "PAUSE";
