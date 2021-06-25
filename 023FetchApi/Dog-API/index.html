@@ -5,20 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOG API</title>
+    <style>
+        .img-container{
+            font-size: larger;
+            color: darkred;
+        }
+        .warning{
+            display: block;
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+        .img{
+           display: none;
+        }
+        
+    </style>
 </head>
 <body>
     <select class="select-dog" name="dogs" id="">
         <option value="">-- Select a breed --</option>
-        <option value="akita">Akita</option>
-        <option value="beagle">Beagle</option>
-        <option value="dalmatian">Dalmatian</option>
-        <option value="germanshepherd">Germanshepherd</option>
-        <option value="husky">Husky</option>
-        <option value="labrador">Labrador</option>
-        <option value="pug">Pug</option>
     </select>
-    <div>
-    <img class="img" width="500px" height="400px"></img>
+
+    <div class="img-container">
+        <span class="warning"> Select <b>a</b> breed to see photo</span>
+        <img class="img" width="500px" height="400px"></img>
     </div>
     <script src="./index.js"></script>
 </body>
