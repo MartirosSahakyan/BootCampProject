@@ -8,7 +8,9 @@ const filmTitles = document.querySelector(".film-title__list");
 
 
 function getFilmsList() {
-  return fetch(`${baseUrl}films`).then((res) => res.json());
+  return fetch(`${baseUrl}films`)
+  .then((res) => res.json())
+  .catch(err => alert('Please refresh the page'))
 }
 function renderList({title, description, director, producer, release_date}) {
         titleSpan.textContent = title;
