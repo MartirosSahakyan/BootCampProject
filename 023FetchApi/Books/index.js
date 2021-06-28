@@ -8,18 +8,22 @@ let inputValue;
 function getBook(queryParam) {
   return fetch(`${baseUrl}?q=${queryParam}`).then((res) => res.json());
 }
-function renderTBody({ title, author_name, publish_year, subject }) {
+function renderTBody(data) {
+  data.forEach(({ title, author_name, publish_year, subject },index) => {
   let tr = document.createElement("tr");
+  let tdN = document.createElement("td");
   let tdTitle = document.createElement("td");
   let tdAuthor = document.createElement("td");
   let tdYear = document.createElement("td");
   let tdSubject = document.createElement("td");
+  tdN.textContent = index+1
   tdTitle.textContent = title;
-  tdAuthor.textContent = author_name[0];
-  tdYear.textContent = Math.min(...publish_year);
-  tdSubject.textContent = subject[0];
+  tdAuthor.textContent = author_name
+  tdYear.textContent = publish_year ? Math.min(...publish_year) : publish_year ;
+  tdSubject.textContent = subject ? subject[0] : subject;
   tBody.append(tr);
-  tr.append(tdTitle, tdAuthor, tdYear, tdSubject);
+  tr.append(tdN, tdTitle, tdAuthor, tdYear, tdSubject);
+  });
 }
 
 input.addEventListener("change", (event) => {
@@ -28,6 +32,6 @@ input.addEventListener("change", (event) => {
 
 btn.addEventListener("click", () => {
   if (inputValue) {
-    getBook(inputValue).then((res) => renderTBody(res.docs[0]));
+    getBook(inputValue).then((res) => renderTBody(res.docs));
   }
 });
