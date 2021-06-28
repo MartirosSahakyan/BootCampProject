@@ -37,7 +37,7 @@ getBreedNames()
       } else {
         breedNames[name].forEach((el) => {
           let option = document.createElement("option");
-          option.setAttribute("value", `${name}-${el}`);
+          option.setAttribute("value", `${name}/${el}`);
           option.innerText = `${name} ${el}`;
           selectDog.append(option);
         });
