@@ -10,10 +10,9 @@
 - Input for minimal value   
 - Input for Step   
 
-## Reading Materials
-    [State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)  
-    [Handling Events](https://reactjs.org/docs/handling-events.html)  
-
+## Reading Materials 
+[State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html).
+[Handling Events](https://reactjs.org/docs/handling-events.html).
 -----
 
 # Getting Started with Create React App
