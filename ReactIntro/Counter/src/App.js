@@ -5,17 +5,23 @@ import CountInput from "./components/countInput";
 class App extends React.Component {
   constructor() {
     super();
+    
     this.state = {
-      count: 0,
+      count: localStorage.getItem('count')?+localStorage.getItem('count'):0,
       max: Infinity,
       min: 0,
       step: 1,
     };
+    
+  }
+  componentDidUpdate(){
+    localStorage.setItem('count', this.state.count)
   }
   handleIncreaseClick = () => {
     let count = this.state.count;
     let max = Number(this.state.max);
-    if (count !== max) {
+    let step = Number(this.state.step);    
+    if (count + step  <= max) {      
       this.setState((prevState) => ({
         count: prevState.count + Number(this.state.step),
       }));
@@ -24,7 +30,9 @@ class App extends React.Component {
   handleDecreaseClick = () => {
     let count = this.state.count;
     let min = Number(this.state.min);
-    if (count !== min) {
+    let step = Number(this.state.step);
+
+    if (count - step >= min) {
       this.setState((prevState) => ({
         count: prevState.count - Number(this.state.step),
       }));
@@ -68,14 +76,14 @@ class App extends React.Component {
         handleInputValue={this.handleStepInputValue} 
         />
 
-        <h2>COUNT:: {this.state.count}</h2>
+        <h2>COUNT:: {this.state.count }</h2>
 
         <CounterButton
           handleClick={this.handleIncreaseClick}
           btnValue="Increase"
         />
         <CounterButton
-          disabled={this.state.count === 0}
+          disabled={!this.state.count}
           handleClick={this.handleDecreaseClick}
           btnValue="Decrease"
         />
