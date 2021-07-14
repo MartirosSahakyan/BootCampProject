@@ -8,17 +8,20 @@ class App extends React.Component {
     
     this.state = {
       count: localStorage.getItem('count')?+localStorage.getItem('count'):0,
-      max: Infinity,
-      min: 0,
-      step: 1,
+      max: localStorage.getItem('max')?+localStorage.getItem('max'):Infinity,
+      min: localStorage.getItem('min')?+localStorage.getItem('min'):0,
+      step: localStorage.getItem('step')?+localStorage.getItem('step'):1,
     };
-    
   }
+  
   componentDidUpdate(){
     localStorage.setItem('count', this.state.count)
+    localStorage.setItem('max', this.state.max)
+    localStorage.setItem('min', this.state.min)
+    localStorage.setItem('step', this.state.step)
   }
   handleIncreaseClick = () => {
-    let count = this.state.count;
+    let count = +this.state.count;
     let max = Number(this.state.max);
     let step = Number(this.state.step);    
     if (count + step  <= max) {      
@@ -41,6 +44,9 @@ class App extends React.Component {
   handleResetClick = () => {
     this.setState({
       count: 0,
+      min: 0,
+      max: Infinity,
+      step: 1,
     });
   };
 
@@ -64,14 +70,19 @@ class App extends React.Component {
     return (
       <div>
         <CountInput
+              value={this.state.max}
+
           label="Max Value"
           handleInputValue={this.handleMaxInputValue}
         />
         <CountInput
+        value={this.state.min}
+
           label="Min Value"
           handleInputValue={this.handleMinInputValue}
         />
         <CountInput 
+        value={this.state.step}
         label="Step" 
         handleInputValue={this.handleStepInputValue} 
         />
