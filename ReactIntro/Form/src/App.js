@@ -5,7 +5,24 @@ const cities = ["Hrazdan", "Gyumri", "Erevan", "Vanadzor", "Gavar"];
 function isFormFilled(formFields = {}) {
   return Object.values(formFields).every((el) => String(el).length);
 }
+// function isFormValid(formFields) {
+//   return isFormFilled(formFields) && isPassValid(formFields.pass)  && isPassValid(formFields.pass)
+// }
+function isPassValid(password) {
+  if (password && password.length < 3) {
+    return false;
+  }
+  return true;
+}
+function isNameValid(name) {
+    if (name && name.length < 3) {
+      return false;
+    }else{
+      return true 
+    }
+  }
 
+      
 class App extends React.Component {
   constructor() {
     super();
@@ -19,7 +36,6 @@ class App extends React.Component {
   }
 
   handleFormSubmit = (evt, state) => {
-    // console.log(isFormFilled(this.state));
     if (isFormFilled(state)) {
       console.log(this.state);
     }
@@ -27,14 +43,14 @@ class App extends React.Component {
   };
 
   handleName = ({ target: { value } }) => {
-    this.setState({
+        this.setState({
       name: value,
     });
   };
   handlePassword = ({ target: { value } }) => {
-    this.setState({
-      pass: value,
-    });
+      this.setState({
+        pass: value,
+      });
   };
   handlePassShow = () => {
     this.setState({
@@ -53,32 +69,35 @@ class App extends React.Component {
   };
 
   render() {
-    const { isPassShown, city } = this.state;
-
+    const { isPassShown, city, name, pass } = this.state;
+    console.log(isPassValid(pass));
     return (
       <div className="App">
+        
         <div className="form-container">
+
           <form onSubmit={(evt) => this.handleFormSubmit(evt, this.state)}>
             <label>
               Name
               <input
-                // required
                 className="form-fields"
                 type="text"
                 placeholder="Your name.."
                 onChange={this.handleName}
               />
             </label>
+            {!isNameValid(name) && <p className="error">enter correct name</p>}
             <label>
               Password
               <input
-                // required
                 className="form-fields"
                 type={isPassShown ? "text" : "password"}
                 placeholder="Your password.."
                 onChange={this.handlePassword}
               />
             </label>
+            {!isPassValid(pass) && <p className="error">enter correct password</p>}
+
             <label>
               <input onChange={this.handlePassShow} type="checkbox" />
               show password
@@ -111,9 +130,7 @@ class App extends React.Component {
             <input
               disabled={!isFormFilled(this.state)}
               className={
-                isFormFilled(this.state)
-                  ? "form-submit"
-                  : "disable_form-submit"
+                isFormFilled(this.state) ? "form-submit" : "disable_form-submit"
               }
               type="submit"
             />
