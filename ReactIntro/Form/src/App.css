@@ -16,6 +16,16 @@
   border-radius: 4px;
   cursor: pointer;
 }
+.disable_form-submit{
+    background-color: grey;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: no-drop;
+} 
+
+
 .form-submit:hover {
   background-color: #45a049;
 }
