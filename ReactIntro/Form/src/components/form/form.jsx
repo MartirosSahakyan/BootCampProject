@@ -56,7 +56,7 @@ class Form extends React.Component {
     const { isPassShown, city, name, pass } = this.state;
 
     return (
-      <div className="App">
+      
         <div className="form-container">
           <form onSubmit={(evt) => this.handleFormSubmit(evt, this.state)}>
             <FormInput
@@ -114,7 +114,7 @@ class Form extends React.Component {
             />
           </form>
         </div>
-      </div>
+      
     );
   }
 }
